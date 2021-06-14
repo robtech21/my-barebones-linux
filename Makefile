@@ -30,7 +30,7 @@ initfs/init: initfs init.sh
 
 $(BUSYBOX_DIRECTORY):
 	wget $(BUSYBOX_URL)
-	tar xf $(BUSYBOX_ARCHIVE)
+	tar xvf $(BUSYBOX_ARCHIVE)
 
 initfs/bin/busybox: $(BUSYBOX_DIRECTORY)
 	cp busybox.config $(BUSYBOX_DIRECTORY)/.config
@@ -54,6 +54,6 @@ runiso: barebones.iso
 	qemu-system-x86_64 -m 2048 -cdrom barebones.iso -boot d
 
 clean:
-	rm -rf vmlinuz initramfs $(KERNEL_DIRECTORY) $(KERNEL_ARCHIVE) \
+	rm -rvf vmlinuz initramfs $(KERNEL_DIRECTORY) $(KERNEL_ARCHIVE) \
 	$(BUSYBOX_DIRECTORY) $(BUSYBOX_ARCHIVE) iso/boot/vmlinuz \
 	iso/boot/initramfs barebones.iso
