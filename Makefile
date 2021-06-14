@@ -18,7 +18,7 @@ vmlinuz: $(KERNEL_DIRECTORY)
 
 $(KERNEL_DIRECTORY):
 	wget $(KERNEL_URL)
-	tar xf $(KERNEL_ARCHIVE)
+	tar xvf $(KERNEL_ARCHIVE)
 
 
 # Initramfs build targets
